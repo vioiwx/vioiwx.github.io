@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>感恩教师节 - 六(3)班致敬所有老师</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e3edf7 100%);
+            color: #333;
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        /* 新增右上角班级感谢标语 */
+        .class-banner {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            z-index: 1000;
+            font-weight: bold;
+            font-size: 1.1rem;
+            animation: pulse 2s infinite;
+            transform-origin: center;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(120deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 0 0 50% 50% / 30%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .quote {
+            font-style: italic;
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #ffd700;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card h2 {
+            color: #1a237e;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffd700;
+        }
+        
+        .history {
+            background: linear-gradient(45deg, #e3f2fd, #bbdefb);
+        }
+        
+        .significance {
+            background: linear-gradient(45deg, #fff8e1, #ffecb3);
+        }
+        
+        .gratitude {
+            background: linear-gradient(45deg, #e8f5e9, #c8e6c9);
+        }
+        
+        .teacher-icon {
+            font-size: 3rem;
+            color: #1a237e;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .blessing-generator {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .blessing-btn {
+            background: #1a237e;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .blessing-btn:hover {
+            background: #ffd700;
+            color: #1a237e;
+            transform: scale(1.05);
+        }
+        
+        .blessing-card {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff9c4;
+            border-radius: 10px;
+            border-left: 5px solid #ffd700;
+            display: none;
+        }
+        
+        /* 添加班级特别感谢区域 */
+        .class-thanks {
+            background: linear-gradient(120deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .class-thanks h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .teachers-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .teacher-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        .teacher-tag:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #1a237e;
+            color: white;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .social-icons {
+            margin: 20px 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #ffd700;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .class-banner {
+                top: 10px;
+                right: 10px;
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+        }
+        
+        .animated {
+            animation: fadeIn 1s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 右上角班级感谢标语 -->
+    <div class="class-banner">
+        感谢老师：六(3)班的所有老师
+    </div>
+    
+    <header class="animated">
+        <h1>感恩教师节</h1>
+        <p class="subtitle">六(3)班全体同学致敬辛勤耕耘的园丁们</p>
+        <div class="quote">
+            "教育的本质是一棵树摇动另一棵树，一朵云推动另一朵云，一个灵魂唤醒另一个灵魂。"
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 班级特别感谢区域 -->
+        <div class="class-thanks">
+            <h2>六(3)班全体同学衷心感谢</h2>
+            <p>感谢您们用知识的甘露滋润我们的心田，用无私的奉献照亮我们前进的道路</p>
+            
+            <div class="teachers-list">
+                <div class="teacher-tag">语文老师</div>
+                <div class="teacher-tag">数学老师</div>
+                <div class="teacher-tag">英语老师</div>
+                <div class="teacher-tag">科学老师</div>
+                <div class="teacher-tag">体育老师</div>
+                <div class="teacher-tag">美术老师</div>
+                <div class="teacher-tag">音乐老师</div>
+                <div class="teacher-tag">班主任</div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="card history">
+                <div class="teacher-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h2>教师节由来</h2>
+                <p>尊师重教是中国的优良传统，教师节旨在肯定教师为教育事业所做的贡献。1985年，第六届全国人大常委会第九次会议通过了国务院关于建立教师节的议案，会议决定将每年的9月10日定为教师节。</p>
+                <p>教师节的建立，标志着教师在我国受到全社会的尊敬。这是因为教师的工作在很大程度上决定着我们国家的未来，是社会主义精神文明建设的重要力量。</p>
+            </div>
+            
+            <div class="card significance">
+                <div class="teacher-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h2>教师节意义</h2>
+                <p>教师节的意义在于提高教师的社会地位，形成尊师重教的社会风尚，促进教师队伍的建设和教育事业的发展。</p>
+                <p>通过教师节的庆祝活动，让学生表达对教师的感恩之情，让教师感受到职业的光荣与幸福，激励教师更加热爱教育事业，为国家培养更多优秀人才。</p>
+            </div>
+            
+            <div class="card gratitude">
+                <div class="teacher-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h2>感恩教师</h2>
+                <p>老师是人类灵魂的工程师，是知识的传播者，是人生的引路人。他们用辛勤的汗水浇灌我们的心田，用无私的奉献点亮我们的未来。</p>
+                <p>在这个特殊的日子里，让我们向所有老师道一声："老师，您辛苦了！谢谢您的教诲和付出！"</p>
+            </div>
+        </div>
+        
+        <div class="blessing-generator">
+            <h2>生成教师节祝福卡</h2>
+            <p>点击下方按钮，生成您对老师的祝福语</p>
+            <button class="blessing-btn" onclick="generateBlessing()">生成祝福</button>
+            
+            <div class="blessing-card" id="blessingCard">
+                <p id="blessingText"></p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-weibo"></i></a>
+            <a href="#"><i class="fab fa-qq"></i></a>
+        </div>
+        <p>© 2023 教师节感恩网页 | 六(3)班献给所有辛勤的教师们</p>
+    </footer>
+
+    <script>
+        // 祝福语库
+        const blessings = [
+            "敬爱的老师，您辛苦了！感谢您用知识滋润我们的心田，祝您教师节快乐！",
+            "桃李满天下，春晖遍四方。祝老师教师节快乐，身体健康！",
+            "您是人类灵魂的工程师，您从事着太阳底下最光辉的事业。感恩有您！",
+            "三尺讲台，三寸舌，三寸笔，三千桃李。十年树木，十载风，十载雨，十万栋梁。",
+            "教诲如春风，师恩似海深。祝亲爱的老师节日快乐，工作顺利！",
+            "老师，您就像蜡烛，燃烧自己，照亮别人。祝您教师节快乐，永远年轻！",
+            "天涯海角有尽处，只有师恩无穷期。感谢您，老师！节日快乐！",
+            "学而不厌，诲人不倦，桃李芬芳，其乐亦融融。祝福您，教师节愉快！"
+        ];
+        
+        // 生成随机祝福语
+        function generateBlessing() {
+            const randomIndex = Math.floor(Math.random() * blessings.length);
+            const blessingText = document.getElementById('blessingText');
+            const blessingCard = document.getElementById('blessingCard');
+            
+            blessingText.textContent = blessings[randomIndex];
+            blessingCard.style.display = 'block';
+            
+            // 添加动画效果
+            blessingCard.style.animation = 'none';
+            setTimeout(() => {
+                blessingCard.style.animation = 'fadeIn 0.5s ease';
+            }, 10);
+        }
+        
+        // 页面加载时添加动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+    </script>
+</body>
+</html>
